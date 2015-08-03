@@ -51,16 +51,16 @@ class SQLChop(object):
             ret.append(r)
         return ret
 
-    def classify_request(self, request, need_log=False):
+    def classify_request(self, request, detail=False):
         s = SQLChop._serialize_request(request)
-        if need_log:
+        if detail:
             MAXLEN = 1 << 20
             out = create_string_buffer(MAXLEN)
             outlen = c_size_t()
-            ret = self._classify_request(self._obj, c_char_p(s), len(s), out, MAXLEN, byref(outlen), c_int(need_log))
+            ret = self._classify_request(self._obj, c_char_p(s), len(s), out, MAXLEN, byref(outlen), c_int(detail))
             return (ret, SQLChop._unserialize_payloads(out[:outlen.value]))
         else:
-            ret = self._classify_request(self._obj, c_char_p(s), len(s), create_string_buffer(0), 0, byref(c_size_t()), c_int(need_log))
+            ret = self._classify_request(self._obj, c_char_p(s), len(s), create_string_buffer(0), 0, byref(c_size_t()), c_int(detail))
             return (ret, [])
 
     def score_sqli(self, payload):
