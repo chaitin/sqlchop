@@ -1,0 +1,18 @@
+message Request {
+  optional bytes urlpath = 1;
+  optional bytes body = 2;
+  optional bytes cookie = 3;
+  optional bytes boundary = 4;
+  optional bytes raw = 5;
+}
+
+message Payload {
+  required bytes value = 1;
+  optional bytes key = 2;
+  optional bytes source = 3;
+  optional float score = 4;
+}
+
+message ListOfPayload {
+  repeated Payload payloads = 1;
+}

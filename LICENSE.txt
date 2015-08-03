@@ -1,0 +1,40 @@
+
+SQLChop Software License Agreement.
+
+Chaitin SQLChop Pre-release.
+
+These license terms are an agreement between Chaitin Tech and you, covering the use of SQLChop (the "Software").
+
+1) SQLChop is provided as freeware, but only for private, non-commercial use.
+
+1.a) General. You may use any number of copies of the software to study, research, develop and test in your work, including work within your internal corporate network.
+
+1.b) Backup copy. You may make one or more backup copies of the software, for reinstalling the software.
+
+1.c) Third Party Programs. The software may include third party components with separate legal notices or governed by other agreements, as described in the THIRDPARTY
+file accompanying the software. Even if such components are governed by other agreements, the disclaimers and the limitations below also apply.
+
+2) PRE-RELEASE SOFTWARE. This software is a pre-release version. It may not operate correctly or work the way a final 
+version of the software will. Chaitin Tech may change it for the final, commercial version. Chaitin Tech also may 
+not release a commercial version. Chaitin Tech is not obligated to provide maintenance, technical support or updates 
+to you for the software.
+
+3) You may not remove any proprietary notices, labels, trademarks on the Software or
+documentation. You may not modify, de-compile, disassemble or reverse engineer the Software. 
+
+4) You may not distribute, rent, sub-license or otherwise make available to others the Software
+or documentation or copies thereof, except as expressly permitted in this License without prior
+written consent from Chaitin Tech(Beijing). In the case of an authorized transfer, the
+transferee must agree to be bound by the terms and conditions of this License Agreement. 
+
+5) FEEDBACK. If you give feedback about the software to Chaitin, you give to Chaitin Tech, without charge, the right to use, share and commercialize your feedback in any way and for any purpose. 
+You will not give feedback that is subject to a license that requires Chaitin Tech to license its software or documentation to third parties because we include your feedback in them. 
+These rights survive this agreement.
+
+6) DISCLAIMER OF WARRANTY. THE SOFTWARE IS LICENSED “AS-IS.” YOU BEAR THE RISK OF USING IT. CHAITIN TECH GIVES NO EXPRESS WARRANTIES, GUARANTEES OR CONDITIONS. Because this software is “as is,” we may not provide support services for it.
+
+Copyright (C) 2015 by Chaitin Tech.
+
+Web: http://sqlchop.chaitin.com/
+Email: sqlchop@chaitin.com
+
