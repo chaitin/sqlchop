@@ -1,8 +1,13 @@
 #!/usr/bin/env python2
 
-import os
+import os, sys
 from ctypes import *
-from preprocessio_pb2 import Request, Payload, ListOfPayload
+try:
+    from preprocessio_pb2 import Request, Payload, ListOfPayload
+except ImportError:
+    print 'ImportError: failed to import preprocessio_pb2'
+    print 'Please install protobuf-python first and then execute make to generate preprocessio_pb2.py'
+    sys.exit(10)
 
 _cwd = os.path.dirname(os.path.realpath(__file__))
 
@@ -82,13 +87,14 @@ class SQLChop(object):
         return {'result': result, 'payloads': payloads}
 
 def main():
-    import sys
-    urlpath = sys.stdin.readline()
-    body = sys.stdin.readline()
-    cookie = sys.stdin.readline()
+    urlpath = ''
+    body = ''
+    cookie = ''
     request = {'urlpath': urlpath, 'body': body, 'cookie': cookie}
     sql = SQLChop()
-    print sql.classify(request)
+    ret = sql.classify(request)
+    if ret['result'] == 0:
+        print 'SQLChop works!'
 
 if __name__ == '__main__':
     main()
