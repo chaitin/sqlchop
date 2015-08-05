@@ -1,4 +1,10 @@
 #!/usr/bin/env python2
+#
+# Copyright (C) 2015 Chaitin Tech
+#
+# Licensed under:
+#   https://github.com/chaitin/sqlchop/blob/master/LICENSE
+#
 
 import pprint
 from sqlchop import *

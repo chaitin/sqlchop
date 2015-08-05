@@ -1,12 +1,18 @@
 #!/usr/bin/env python2
+#
+# Copyright (C) 2015 Chaitin Tech.
+#
+# Licensed under: 
+#   https://github.com/chaitin/sqlchop/blob/master/LICENSE
+#
 
 import os, sys
 from ctypes import *
 try:
-    from preprocessio_pb2 import Request, Payload, ListOfPayload
+    from sqlchopio_pb2 import Request, Payload, ListOfPayload
 except ImportError:
-    print 'ImportError: failed to import preprocessio_pb2'
-    print 'Please install protobuf-python first and then execute make to generate preprocessio_pb2.py'
+    print 'ImportError: failed to import sqlchopio_pb2'
+    print 'Please install protobuf-python first and then execute make to generate sqlchopio_pb2.py'
     sys.exit(10)
 
 _cwd = os.path.dirname(os.path.realpath(__file__))

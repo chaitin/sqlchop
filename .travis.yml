@@ -1,0 +1,21 @@
+sudo: required
+
+language: cpp
+
+os: linux
+
+install:
+  - sudo pip install protobuf
+  - wget https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz
+  - tar -xzvf protobuf-2.6.1.tar.gz
+  - cd protobuf-2.6.1 && ./configure --prefix=/usr && make && sudo make install && cd ..
+
+script:
+  - ./travis.sh $CONFIG
+
+env:
+  - CONFIG=cpp
+  - CONFIG=python
+
+notifications:
+  email: true

@@ -1,7 +1,9 @@
 
 # SQLChop
 
-A novol SQL injection detection engine.
+[![Build Status](https://travis-ci.org/chaitin/sqlchop.svg?branch=master)](https://travis-ci.org/chaitin/sqlchop)
+
+A novel SQL injection detection engine.
 
 SQLChop is a demo tool of Blackhat 2015 arsenal session. https://www.blackhat.com/us-15/arsenal.html#yusen-chen
 
@@ -23,17 +25,23 @@ http://sqlchop.chaitin.com/doc.html
 
 ## Dependencies
 
-The current alpha testing release is provided as a python library. C++ headers and examples will be released soon.
+The SQLChop alpha testing release includes the c++ header and shared object, a python library, and also some sample usages. The release has been tested on most linux distributions.
 
-To install `protobuf-python`, you can use `pip`, `easy_install` or `pacman`, `yum`, `apt-get` as needed.
+If using python, you need to install `protobuf-python`, e.g.:
 
 ```
 $ sudo pip install protobuf
 ```
 
+If using c++, you need to install `protobuf`, `protobuf-compiler` and `protobuf-devel`, e.g.:
+
+```
+$ sudo yum install protobuf protobuf-compiler protobuf-devel
+```
+
 ## Build
 
  - Download latest release at https://github.com/chaitin/sqlchop/releases
- - make
- - run test.py
+ - Make
+ - Run `python2 test.py` or `LD_LIBRARY_PATH=./ ./sqlchop_test`
  - Enjoy!
