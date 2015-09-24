@@ -1,10 +1,13 @@
+java_home=$$(find / -name jni.h 2>/dev/null | grep -e 'include/jni.h$$' | tail -n 1 | sed 's/\/include\/jni.h//g')
 uname=$$(uname | tr [:upper:] [:lower:])
+lib_path=/usr/lib64
 
-all: ./cn/chaitin/sqlchop/protobuf/Sqlchopio.class ./jni/libSQLChopJni.jnilib ./cn/chaitin/sqlchop/SQLChop.class
+all : ./cn/chaitin/sqlchop/protobuf/Sqlchopio.class $(lib_path)/libSQLChopJni.so ./cn/chaitin/sqlchop/SQLChop.class
 
 
-./jni/libSQLChopJni.jnilib : ./jni/cn_chaitin_sqlchop_SQLChop.h ./jni/SQLChop.c
-	gcc -shared -fPIC -I $(java_home)/include -I$(java_home)/include/$(uname) -L./jni -lsqlchop ./jni/SQLChop.c -o ./libSQLChopJni.jnilib
+$(lib_path)/libSQLChopJni.so : ./jni/cn_chaitin_sqlchop_SQLChop.h ./jni/SQLChop.c
+	cp ../../libsqlchop.so $(lib_path)/libsqlchop.so
+	gcc -shared -fPIC -Wall -O3 -I $(java_home)/include -I$(java_home)/include/$(uname) -lsqlchop ./jni/SQLChop.c -o $(lib_path)/libSQLChopJni.so
 
 ./jni/cn_chaitin_sqlchop_SQLChop.h : ./cn/chaitin/sqlchop/SQLChop.class
 	javah -jni -classpath ./protobuf-java-2.6.1.jar:. -d ./jni cn.chaitin.sqlchop.SQLChop
@@ -16,12 +19,12 @@ all: ./cn/chaitin/sqlchop/protobuf/Sqlchopio.class ./jni/libSQLChopJni.jnilib ./
 	protoc --java_out="./" sqlchopio.proto
 
 clean :
-	rm -rf ./cn/chaitin/SQLchop/protobuf
-	rm ./cn/chaitin/sqlchop/*.class
-	rm ./jni/cn_chaitin_sqlchop_SQLChop_ClassifyResult.h
-	rm ./jni/cn_chaitin_sqlchop_SQLChop.h
-	rm ./libSQLChopJni.jnilib
+	rm -rf ./cn/chaitin/sqlchop/protobuf
+	rm -f ./cn/chaitin/sqlchop/*.class
+	rm -f ./jni/cn_chaitin_sqlchop_SQLChop_ClassifyResult.h
+	rm -f ./jni/cn_chaitin_sqlchop_SQLChop.h
+	rm -f $(lib_path)/libSQLChopJni.so
+	rm -f $(lib_path)/libsqlchop.so
 
 test :
-	@export DYLD_LIBRARY_PATH="$${DYLD_LIBRARY_PATH}:./jni:./jni/render";
 	java -classpath ./protobuf-java-2.6.1.jar:. cn.chaitin.sqlchop.SQLChop
