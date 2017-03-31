@@ -7,4 +7,4 @@ SQLChop is a demo tool of Blackhat 2015 arsenal session. https://www.blackhat.co
 
 ## Demo page
 
-The libsqlchop.so here is deprecated, for the latest version, try the online demo: http://sqlchop.chaitin.com/demo
+The libsqlchop.so here is deprecated, for the latest version, try the online demo: http://sqlchop.chaitin.cn/demo
